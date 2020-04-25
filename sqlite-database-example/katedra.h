@@ -11,7 +11,7 @@ class katedra : public QObject
     Q_OBJECT
 public:
     explicit katedra(QObject *parent = nullptr);
-    void insert_katedra(QString nazwa, QString student_id);
+    void insert_katedra(QString nazwa, QString prowadzacy_id);
 signals:
 
 };

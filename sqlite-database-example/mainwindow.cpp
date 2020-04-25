@@ -32,10 +32,12 @@ MainWindow::MainWindow(QWidget *parent) :
     nauczyciel = new prowadzacy();
     uczen = new Student();
     katedra2 = new katedra();
+	nowykurs = new kurs();
     //uczen->insert_student("Rocky","Stawarz","2314","2","3");
     //uczen->insert_student("Rocky","BLbla","2314","2");
     nauczyciel->insert_prowadzacy("Rocky","BLbla");
     katedra2->insert_katedra("Elektorniki", "1");
+	nowykurs->insert_kurs("Bazy Danych", "3", "17:05", "18:45");
 
     aktutlanie_wybrany= ui->comboBox->currentText();
     select(aktutlanie_wybrany);

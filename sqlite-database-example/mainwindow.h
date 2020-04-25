@@ -11,6 +11,7 @@
 #include "prowadzacy.h"
 #include "student.h"
 #include "katedra.h"
+#include "kurs.h"
 namespace Ui {
 class MainWindow;
 }
@@ -25,6 +26,7 @@ public:
     prowadzacy *nauczyciel;
     Student *uczen;
     katedra *katedra2;
+	kurs *nowykurs
     QString aktutlanie_wybrany;
 
      void select(QString kogo);

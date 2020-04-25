@@ -6,8 +6,8 @@ katedra::katedra(QObject *parent) : QObject(parent)
     query.append("CREATE TABLE IF NOT EXISTS katedra("
                     "katedra_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,"
                     "nazwa VARCHAR(100) NOT NULL,"
-                    "student_id INTEGER NOT NULL,"
-                    "FOREIGN KEY(student_id) REFERENCES Student(student_id)"
+                    "prowadzacy_id INTEGER NOT NULL,"
+                    "FOREIGN KEY(prowadzacy_id) REFERENCES prowadzacy(prowadzacy_id)"
                     ");");
     QSqlQuery create;
     create.prepare(query);
@@ -22,14 +22,14 @@ katedra::katedra(QObject *parent) : QObject(parent)
     }
 }
 
-void katedra::insert_katedra(QString nazwa, QString student_id)
+void katedra::insert_katedra(QString nazwa, QString prowadzacy_id)
 {
 
     QSqlQuery query;
-    query.prepare("INSERT INTO katedra (nazwa, student_id)"
+    query.prepare("INSERT INTO katedra (nazwa, prowadzacy_id)"
                   "VALUES (?, ?)");
     query.addBindValue(nazwa);
-    query.addBindValue(student_id);
+    query.addBindValue(prowadzacy_id);
     if (query.exec())
     {
         qDebug()<<"The Katerdra is properly inserted";
