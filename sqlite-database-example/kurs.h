@@ -6,13 +6,13 @@
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
-class kurs : public QObject
+class Kurs : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	explicit kurs(QObject *parent = nullptr);
-	void insert_kurs(QString prowadzacy_id, QString student_id, QString sala_id, 
-		QString nazwa, QString ECTS, QString godzina_rozpoczecia, QString godzina_zakonczenia);
+    explicit Kurs(QObject *parent = nullptr);
+    void insert_kurs(QString prowadzacy_id, QString sala_id,QString nazwa, QString ECTS);
+    void delete_kursID(QString kurs_id);
 signals:
 
 };

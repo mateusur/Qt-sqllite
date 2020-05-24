@@ -6,12 +6,13 @@
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
-class prowadzacy : public QObject
+class Prowadzacy : public QObject
 {
     Q_OBJECT
 public:
-    explicit prowadzacy(QObject *parent = nullptr);
+    explicit Prowadzacy(QObject *parent = nullptr);
     void insert_prowadzacy(QString imie, QString nazwisko);
+    void delete_porwadzacyID(QString id_prowadzacego);
 signals:
 
 };

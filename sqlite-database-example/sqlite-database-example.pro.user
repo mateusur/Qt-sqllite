@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.2, 2020-04-24T20:57:40. -->
+<!-- Written by QtCreator 4.11.2, 2020-05-04T08:38:24. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -287,8 +287,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Student241614/Desktop/qt5-sqlite-connection-example-master/qt5-sqlite-connection-example-master/sqlite-database-example/sqlite-database-example.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Student241614/Desktop/qt5-sqlite-connection-example-master/qt5-sqlite-connection-example-master/sqlite-database-example/sqlite-database-example.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">sqlite-database-example2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Prywatny/Studia/Semestr 6/Bazy danych/Git/sqlite-database-example/sqlite-database-example.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Prywatny/Studia/Semestr 6/Bazy danych/Git/sqlite-database-example/sqlite-database-example.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

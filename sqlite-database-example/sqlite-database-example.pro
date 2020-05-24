@@ -14,6 +14,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         katedra.cpp \
+        kurs.cpp \
+        kursy.cpp \
         mainwindow.cpp \
         prowadzacy.cpp \
         sala.cpp \
@@ -21,6 +23,8 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     katedra.h \
+    kurs.h \
+    kursy.h \
     prowadzacy.h \
     sala.h \
     student.h

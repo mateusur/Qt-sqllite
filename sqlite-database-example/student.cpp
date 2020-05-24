@@ -1,13 +1,13 @@
 #include "student.h"
 
-Student::Student(QObject *parent) : QObject(parent)
+Student::Student(QObject *parent,QMessageBox *box) : QObject(parent),msgBox(box)
 {
     QString query;
     query.append("CREATE TABLE IF NOT EXISTS Student("
                     "student_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,"
                     "imie VARCHAR(100) NOT NULL,"
                     "nazwisko VARCHAR(100) NOT NULL,"
-                    "numer_indeksu INTEGER NOT NULL,"
+                    "numer_indeksu INTEGER NOT NULL UNIQUE,"
                     "rok_studiow INTEGER NOT NULL,"
                     "deficyt INTEGER DEFAULT 0"
                     ");");
@@ -21,11 +21,13 @@ Student::Student(QObject *parent) : QObject(parent)
     {
         qDebug()<<"Table Student not exists or has not been created";
         qDebug()<<"Student ERROR! "<< create.lastError();
+
     }
 }
 
 void Student::insert_student(QString imie, QString nazwisko, QString numer_indeksu, QString rok_studiow, QString deficyt)
 {
+    QSqlError error2;
     QString query;
     query.append("INSERT INTO Student("
                     "imie,"
@@ -51,11 +53,15 @@ void Student::insert_student(QString imie, QString nazwisko, QString numer_indek
     else
     {
         qDebug()<<"The Student is not inserted correctly";
-        qDebug()<<"INSTERT Student ERROR! "<< insert.lastError();
+        error2=insert.lastError();
+        qDebug()<<"INSTERT Student ERROR! "<< error2;
+        msgBox.setText(error2.databaseText());
+        msgBox.exec();
     }
 }
 void Student::insert_student(QString imie, QString nazwisko, QString numer_indeksu, QString rok_studiow)
 {
+    QSqlError error2;
     QString query;
     query.append("INSERT INTO Student("
                     "imie,"
@@ -79,7 +85,10 @@ void Student::insert_student(QString imie, QString nazwisko, QString numer_indek
     else
     {
         qDebug()<<"The Student is not inserted correctly";
-        qDebug()<<"INSTERT Student ERROR! "<< insert.lastError();
+        error2=insert.lastError();
+        qDebug()<<"INSTERT Student ERROR! "<< error2;
+        msgBox.setText(error2.databaseText());
+        msgBox.exec();
     }
 }
 
@@ -90,12 +99,12 @@ void Student::delete_studentNAME(QString imie)
     query.addBindValue(imie);
     if (query.exec())
     {
-        qDebug()<<"The Student is properly inserted";
+        qDebug()<<"The Student is properly deleted";
     }
     else
     {
-        qDebug()<<"The Student is not inserted correctly";
-        qDebug()<<"INSTERT Student ERROR! "<< query.lastError();
+        qDebug()<<"The Student is not deleted correctly";
+        qDebug()<<"DELETE Student ERROR! "<< query.lastError();
     }
 }
 
@@ -106,11 +115,11 @@ void Student::delete_studentID(QString student_id)
     query.addBindValue(student_id);
     if (query.exec())
     {
-        qDebug()<<"The Student is properly inserted";
+        qDebug()<<"The Student is properly deleted";
     }
     else
     {
-        qDebug()<<"The Student is not inserted correctly";
-        qDebug()<<"INSTERT Student ERROR! "<< query.lastError();
+        qDebug()<<"The Student is not deleted correctly";
+        qDebug()<<"DELETE Student ERROR! "<< query.lastError();
     }
 }

@@ -6,11 +6,14 @@
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
-class katedra : public QObject
+
+#include <QMessageBox>
+
+class Katedra : public QObject
 {
     Q_OBJECT
 public:
-    explicit katedra(QObject *parent = nullptr);
+    explicit Katedra(QObject *parent = nullptr);
     void insert_katedra(QString nazwa, QString prowadzacy_id);
 signals:
 

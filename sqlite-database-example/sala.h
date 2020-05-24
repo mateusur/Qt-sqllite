@@ -7,12 +7,13 @@
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
-class sala : public QObject
+class Sala : public QObject
 {
     Q_OBJECT
 public:
-    explicit sala(QObject *parent = nullptr);
-    //void insert_prowadzacy(QString imie, QString nazwisko);
+    explicit Sala(QObject *parent = nullptr);
+    void insert_sala(QString numer_sali, QString max_liczba_miejsc);
+    void delete_salaID(QString sala_id);
 signals:
 
 };

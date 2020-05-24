@@ -1,6 +1,6 @@
 #include "prowadzacy.h"
 
-prowadzacy::prowadzacy(QObject *parent) : QObject(parent)
+Prowadzacy::Prowadzacy(QObject *parent) : QObject(parent)
 {
     QString query;
 
@@ -23,7 +23,7 @@ prowadzacy::prowadzacy(QObject *parent) : QObject(parent)
     }
 }
 
-void prowadzacy::insert_prowadzacy(QString imie, QString nazwisko)
+void Prowadzacy::insert_prowadzacy(QString imie, QString nazwisko)
 {
 
     QSqlQuery query;
@@ -41,3 +41,21 @@ void prowadzacy::insert_prowadzacy(QString imie, QString nazwisko)
         qDebug()<<"INSTERT PROWADZACY ERROR! "<< query.lastError();
     }
 }
+
+void Prowadzacy::delete_porwadzacyID(QString id_prowadzacego)
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM prowadzacy WHERE prowadzacy_id = ?");
+    query.addBindValue(id_prowadzacego);
+    if (query.exec())
+    {
+        qDebug()<<"The Prowadzacy is properly deleted";
+    }
+    else
+    {
+        qDebug()<<"The Prowadzacy is not inserted deleted";
+        qDebug()<<"DELETE Prowadzacy ERROR! "<< query.lastError();
+    }
+}
+
+

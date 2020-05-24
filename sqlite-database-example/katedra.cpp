@@ -1,6 +1,6 @@
 #include "katedra.h"
 
-katedra::katedra(QObject *parent) : QObject(parent)
+Katedra::Katedra(QObject *parent) : QObject(parent)
 {
     QString query;
     query.append("CREATE TABLE IF NOT EXISTS katedra("
@@ -17,14 +17,15 @@ katedra::katedra(QObject *parent) : QObject(parent)
     }
     else
     {
+
         qDebug()<<"Table Katedra not exists or has not been created";
         qDebug()<<"Student ERROR! "<< create.lastError();
+
     }
 }
 
-void katedra::insert_katedra(QString nazwa, QString prowadzacy_id)
+void Katedra::insert_katedra(QString nazwa, QString prowadzacy_id)
 {
-
     QSqlQuery query;
     query.prepare("INSERT INTO katedra (nazwa, prowadzacy_id)"
                   "VALUES (?, ?)");
@@ -38,6 +39,8 @@ void katedra::insert_katedra(QString nazwa, QString prowadzacy_id)
     {
         qDebug()<<"The Katedra is not inserted correctly";
         qDebug()<<"INSTERT Katedra ERROR! "<< query.lastError();
+
+
     }
 }
 /*void Student::insert_student(QString imie, QString nazwisko, QString numer_indeksu, QString rok_studiow)
