@@ -43,64 +43,39 @@ void Katedra::insert_katedra(QString nazwa, QString prowadzacy_id)
 
     }
 }
-/*void Student::insert_student(QString imie, QString nazwisko, QString numer_indeksu, QString rok_studiow)
+
+void Katedra::edit_katedra(QString nazwa, QString prowadzacy_id, QString id)
 {
-    QString query;
-    query.append("INSERT INTO Student("
-                    "imie,"
-                    "nazwisko,"
-                     "numer_indeksu,"
-                     "rok_studiow)"
-                    "VALUES("
-                    "'"+imie+"',"
-                    "'"+nazwisko+"',"
-                    "'"+numer_indeksu+"',"
-                    ""+rok_studiow+""
-                    ");");
+    QSqlQuery query;
+        query.prepare("UPDATE katedra set nazwa=?, prowadzacy_id=? where katedra_id=?");
+        query.addBindValue(nazwa);
+        query.addBindValue(prowadzacy_id);
+        query.addBindValue(id);
+        if (query.exec())
+        {
+            qDebug() << "The Katedra is properly edited";
+        }
+        else
+        {
+            qDebug() << "The Katedra is not Updated correctly";
+            qDebug() << "UPDATE Katedra ERROR! " << query.lastError();
+        }
+}
 
-    QSqlQuery insert;
-    insert.prepare(query);
-
-    if (insert.exec())
+void Katedra::delete_katedra(QString id)
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM katedra WHERE katedra_id = ?");
+    query.addBindValue(id);
+    if (query.exec())
     {
-        qDebug()<<"The Student is properly inserted";
+        qDebug()<<"The Katedra is properly deleted";
     }
     else
     {
-        qDebug()<<"The Student is not inserted correctly";
-        qDebug()<<"INSTERT Student ERROR! "<< insert.lastError();
+        qDebug()<<"The Katedra is not deleted correctly";
+        qDebug()<<"DELETE Katedra ERROR! "<< query.lastError();
     }
 }
 
-void Student::delete_studentNAME(QString imie)
-{
-    QSqlQuery query;
-    query.prepare("DELETE FROM Student WHERE imie = ?");
-    query.addBindValue(imie);
-    if (query.exec())
-    {
-        qDebug()<<"The Student is properly inserted";
-    }
-    else
-    {
-        qDebug()<<"The Student is not inserted correctly";
-        qDebug()<<"INSTERT Student ERROR! "<< query.lastError();
-    }
-}
-
-void Student::delete_studentID(QString student_id)
-{
-    QSqlQuery query;
-    query.prepare("DELETE FROM Student WHERE student_id = ?");
-    query.addBindValue(student_id);
-    if (query.exec())
-    {
-        qDebug()<<"The Student is properly inserted";
-    }
-    else
-    {
-        qDebug()<<"The Student is not inserted correctly";
-        qDebug()<<"INSTERT Student ERROR! "<< query.lastError();
-    }
-}*/
 

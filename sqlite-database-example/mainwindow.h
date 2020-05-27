@@ -23,7 +23,7 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+    QMessageBox msgBox2;
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -41,6 +41,7 @@ public:
     void showKurs();
     void showKatedra();
     void showSala();
+    void showKursy();
 
     void fill_tables();
     void add_to_comboBox();
@@ -59,6 +60,8 @@ private slots:
     void on_comboBox_usuwanie_currentTextChanged(const QString &arg1);
 
     void on_comboBox_dodawanie_currentIndexChanged(int index);
+
+    void on_checkBox_stateChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;

@@ -15,6 +15,8 @@ class Katedra : public QObject
 public:
     explicit Katedra(QObject *parent = nullptr);
     void insert_katedra(QString nazwa, QString prowadzacy_id);
+    void edit_katedra(QString nazwa, QString prowadzacy_id, QString id);
+    void delete_katedra(QString id);
 signals:
 
 };

@@ -94,6 +94,7 @@ void Student::insert_student(QString imie, QString nazwisko, QString numer_indek
 
 void Student::delete_studentNAME(QString imie)
 {
+    QSqlError error2;
     QSqlQuery query;
     query.prepare("DELETE FROM Student WHERE imie = ?");
     query.addBindValue(imie);
@@ -105,7 +106,31 @@ void Student::delete_studentNAME(QString imie)
     {
         qDebug()<<"The Student is not deleted correctly";
         qDebug()<<"DELETE Student ERROR! "<< query.lastError();
+        msgBox.setText("Wiele takich samych imion, usunięcie niemożliwe");
+        msgBox.exec();
+
     }
+}
+
+void Student::edit_student(QString imie, QString nazwisko, QString numer_indeksu, QString rok_studiow, QString deficyt,QString id)
+{
+    QSqlQuery query;
+        query.prepare("UPDATE Student set imie=?, nazwisko=?, numer_indeksu=?,rok_studiow=?,deficyt=? where student_id=?");
+        query.addBindValue(imie);
+        query.addBindValue(nazwisko);
+        query.addBindValue(numer_indeksu);
+        query.addBindValue(rok_studiow);
+        query.addBindValue(deficyt);
+        query.addBindValue(id);
+        if (query.exec())
+        {
+            qDebug() << "The Student is properly edited";
+        }
+        else
+        {
+            qDebug() << "The Student is not edited correctly";
+            qDebug() << "UPDATE Student ERROR! " << query.lastError();
+        }
 }
 
 void Student::delete_studentID(QString student_id)

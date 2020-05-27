@@ -58,4 +58,22 @@ void Prowadzacy::delete_porwadzacyID(QString id_prowadzacego)
     }
 }
 
+void Prowadzacy::edit_prowadzacy(QString imie, QString nazwisko, QString id)
+{
+    QSqlQuery query;
+        query.prepare("UPDATE prowadzacy set imie=?, nazwisko=? where prowadzacy_id=?");
+        query.addBindValue(imie);
+        query.addBindValue(nazwisko);
+        query.addBindValue(id);
+        if (query.exec())
+        {
+            qDebug() << "The Prowadzacy is properly edited";
+        }
+        else
+        {
+            qDebug() << "The Prowadzacy is not Updated correctly";
+            qDebug() << "UPDATE prowadzacy ERROR! " << query.lastError();
+        }
+}
+
 

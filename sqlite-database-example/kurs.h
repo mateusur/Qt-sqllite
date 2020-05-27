@@ -13,6 +13,7 @@ public:
     explicit Kurs(QObject *parent = nullptr);
     void insert_kurs(QString prowadzacy_id, QString sala_id,QString nazwa, QString ECTS);
     void delete_kursID(QString kurs_id);
+    void edit_kurs(QString prowadzacy_id, QString sala_id,QString nazwa, QString ECTS,QString id);
 signals:
 
 };

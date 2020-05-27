@@ -13,6 +13,7 @@ public:
     explicit Prowadzacy(QObject *parent = nullptr);
     void insert_prowadzacy(QString imie, QString nazwisko);
     void delete_porwadzacyID(QString id_prowadzacego);
+    void edit_prowadzacy(QString imie, QString nazwisko, QString id);
 signals:
 
 };

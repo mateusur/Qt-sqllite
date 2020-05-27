@@ -62,3 +62,23 @@ void Kurs::delete_kursID(QString kurs_id)
         qDebug()<<"DELETE Kurs ERROR! "<< query.lastError();
     }
 }
+
+void Kurs::edit_kurs(QString prowadzacy_id, QString sala_id, QString nazwa, QString ECTS, QString id)
+{
+    QSqlQuery query;
+        query.prepare("UPDATE kurs set prowadzacy_id=?, sala_id=?, nazwa=?,ECTS=? where kurs_id=?");
+        query.addBindValue(prowadzacy_id);
+        query.addBindValue(sala_id);
+        query.addBindValue(nazwa);
+        query.addBindValue(ECTS);
+        query.addBindValue(id);
+        if (query.exec())
+        {
+            qDebug() << "The kurs is properly edited";
+        }
+        else
+        {
+            qDebug() << "The Kurs is not Updated correctly";
+            qDebug() << "UPDATE Kurs ERROR! " << query.lastError();
+        }
+}

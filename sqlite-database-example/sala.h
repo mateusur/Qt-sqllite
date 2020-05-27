@@ -14,6 +14,7 @@ public:
     explicit Sala(QObject *parent = nullptr);
     void insert_sala(QString numer_sali, QString max_liczba_miejsc);
     void delete_salaID(QString sala_id);
+    void edit_sala(QString numer_sali, QString max_liczba_miejsc,QString id);
 signals:
 
 };

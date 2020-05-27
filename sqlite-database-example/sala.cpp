@@ -58,3 +58,21 @@ void Sala::delete_salaID(QString sala_id)
         qDebug()<<"DELETE Sala ERROR! "<< query.lastError();
     }
 }
+
+void Sala::edit_sala(QString numer_sali, QString max_liczba_miejsc,QString id)
+{
+    QSqlQuery query;
+        query.prepare("UPDATE sala set numer_sali=?, max_liczba_miejsc=? where sala_id=?");
+        query.addBindValue(numer_sali);
+        query.addBindValue(max_liczba_miejsc);
+        query.addBindValue(id);
+        if (query.exec())
+        {
+            qDebug() << "The Sala is properly edited";
+        }
+        else
+        {
+            qDebug() << "The Sala is not Updated correctly";
+            qDebug() << "UPDATE Sala ERROR! " << query.lastError();
+        }
+}

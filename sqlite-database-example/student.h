@@ -17,6 +17,7 @@ public:
     void insert_student(QString imie, QString nazwisko, QString numer_indeksu, QString rok_studiow);
     void delete_studentID(QString student_id);
     void delete_studentNAME(QString imie);
+    void edit_student(QString imie,QString nazwisko,QString numer_indeksu, QString rok_studiow,QString deficyt,QString id);
 signals:
 
 };
