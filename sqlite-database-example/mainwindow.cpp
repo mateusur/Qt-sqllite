@@ -16,17 +16,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-
     qDebug()<<"Application initialized...";
-
     QString name;
     name.append("test31.sqlite");
-
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(name);
-
-
     if(db.open())
     {
        qDebug()<<"Successful database connection";
@@ -52,9 +46,6 @@ MainWindow::MainWindow(QWidget *parent) :
     aktutlanie_wybrany= ui->comboBox->currentText();
     add_to_comboBox();
     select(aktutlanie_wybrany);
-
-
-
     ui->lineEdit_9->hide();
     ui->label_9->hide();
 }
@@ -478,7 +469,6 @@ void MainWindow::on_pushButtonDelete_clicked()
 
         }
     }
-    //DODAC USUWANIE KURSY
     select(aktutlanie_wybrany);
 }
 
@@ -486,8 +476,6 @@ void MainWindow::on_pushButtonInsertShow_clicked()
 {
     QString co_wypisac;
     if(ui->lineEdit_6->text().size()>0 && ui->comboBox_2->currentText()!="-------"){
-        //Wypisanie ERRORA
-        QSqlError error2;
         msgBox2.setText("Nie ma takiej opcji wyświetlania. Wyczyść pole lub wybierz -------");
         msgBox2.exec();
     }
