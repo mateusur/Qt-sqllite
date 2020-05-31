@@ -1,9 +1,10 @@
 Aplikacja symulująca działanie dziekanatu stworzona przy użyciu Qt, wykorzystująca SQLite.  
 Niekótre możliwości aplikacji:  
-- Dodawanie studentów, prowadzących
-- Usuwanie prowadzących, sal
-- Wyświetlanie studentów przypisanych do kursu (przedmiotu)   
+- dodawanie studentów, prowadzących
+- usuwanie prowadzących, sal
+- wyświetlanie studentów przypisanych do kursu (przedmiotu)  
+- edycja już dodanych elementów
   
 Zdjęcia pokazujące działanie aplikacji  
 ![](images/login.jpg)
-![](images/Ekran dodawania.jpg)
+![](images/ekran_dodawania.jpg)
