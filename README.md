@@ -6,4 +6,4 @@ Niekótre możliwości aplikacji:
   
 Zdjęcia pokazujące działanie aplikacji  
 ![](images/login.jpg)
-![](images/Ekran dodawania.jpg)
+![](images/ekran_dodawania.jpg)
